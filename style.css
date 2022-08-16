@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    background: url(img.jpg);
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 5%;
+    background-color: rgba(255 255 255 /.9);
+    height: 70px;
+}
+.logo {
+    color: #e16847;
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+a {
+    text-decoration: 0;
+    color: #999;
+    margin-left: 10px;
+    letter-spacing: 0.5px;
+}
+
+.icon {
+    display: none;
+}
+
+/*Responsive*/
+@media (max-width:650px) {
+    body {
+        background-repeat: repeat;
+        min-height: unset;
+    }
+    header {
+        padding: 10px;
+    }
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgba(255 255 255 /.9);
+        height: calc(100vh - 70px);
+        margin-top: 70px;
+        width: 100%;
+        padding-top: 64px;
+        animation: anime 0.5s ease-out;
+    }
+
+
+    /*Animation*/
+    @keyframes anime {
+        from {
+            transform: translateX(200px);
+        }
+    }
+    a {
+        margin: 5px 0;
+        padding: 15px;
+        transform: 0.5s;
+
+    }
+    a:hover {
+        background-color: rgb(238,236,236);
+        color: #000;
+    }
+  /*Responsive Icons*/
+    .icon {
+       z-index: 100;
+       width: 50px;
+       height: 50px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       position: relative;
+       cursor: pointer;
+      
+    }
+    .icon::before {
+        position: absolute;
+        content:"";
+        background-color: #999;
+        width: 28px;
+        height: 2px;
+        border-radius: 6px;
+        transform: translateY(-10px);
+        box-shadow: 0 10px 0 #999;
+        transition: 0.5s;
+    }
+    .icon.active::before {
+        transform: rotate(45deg);
+        box-shadow: 0 0 0 #999;
+    }
+    .icon::after {
+        position: absolute;
+        content:"";
+        background-color: #999;
+        width: 28px;
+        height: 2px;
+        border-radius: 6px;
+        transform: translateY(10px);
+        transition: 0.5s;
+    }
+    .icon.active::after {
+        transform: rotate(-45deg);
+     
+    }
+    .responsive {
+        display: flex;
+    }
+}
